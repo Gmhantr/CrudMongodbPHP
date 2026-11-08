@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Cursos</title>
+</head>
+<body>
+
+    <form action="" method="POST">
+
+        <fieldset>
+            <legend>Dados do Curso</legend>
+
+            <label for="nome">Nome do Curso</label>
+            <input type="text" placeholder="Digite o nome do curso" id="nome" name="nome" required>
+
+            <label for="codigo">Código do Curso</label>
+            <input type="text" placeholder="Digite o código do curso" id="codigo" name="codigo" required>
+
+            <label for="descricao">Descrição</label>
+            <input type="text" placeholder="Digite a descrição do curso" id="descricao" name="descricao" required>
+
+            <label for="carga_horaria">Carga Horária (horas)</label>
+            <input type="number" placeholder="Ex: 1200" id="carga_horaria" name="carga_horaria" required>
+
+            <label for="modalidade">Modalidade</label>
+            <select id="modalidade" name="modalidade" required>
+                <option value="">Selecione</option>
+                <option value="Presencial">Presencial</option>
+                <option value="EAD">EAD</option>
+                <option value="Hibrido">Híbrido</option>
+            </select>
+
+
+        </fieldset>
+
+        <br>
+
+        <button type="submit">Cadastrar Curso</button>
+
+    </form>
+
+</body>
+</html>
