@@ -2,6 +2,9 @@
 
 $manager = new MongoDB\Driver\Manager("mongodb://localhost:27017");
 
-echo "Driver MongoDB carregado!";
+$banco = "escola";
+$colecao = "estudante";
+
+$namespace = "$banco.$colecao";
 
 ?>

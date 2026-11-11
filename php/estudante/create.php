@@ -1,14 +1,17 @@
 <?php
+
 // create.php
 require '../connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Capturar dados do formulário
+
+    // Dados do estudante
     $name = $_POST['name'];
     $email = $_POST['email'];
     $cpf = $_POST['cpf'];
     $celular = $_POST['celular'];
 
+    // Dados do endereço
     $cep = $_POST['cep'];
     $rua = $_POST['rua'];
     $bairro = $_POST['bairro'];
@@ -16,25 +19,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $estado = $_POST['estado'];
     $complemento = $_POST['complemento'];
 
-    // Preparar o documento para inserção
-    $bulk = new MongoDB\Driver\BulkWrite;
+    // Preparar documento
+    $bulk = new MongoDB\Driver\BulkWrite();
+
     $bulk->insert([
         'name' => $name,
         'email' => $email,
-        'cpf'=> $cpf,
-        'celular'=> $celular,
-        'cep'=> $cep,
-        'rua'=> $rua,
-        'bairro' => $bairro,
-        'cidade'=> $cidade,
-        'estado'=> $estado,
-        'complemento'=> $complemento
-        
+        'cpf' => $cpf,
+        'celular' => $celular,
+
+        'endereco' => [
+            'cep' => $cep,
+            'rua' => $rua,
+            'bairro' => $bairro,
+            'cidade' => $cidade,
+            'estado' => $estado,
+            'complemento' => $complemento
+        ]
     ]);
 
     // Inserir no MongoDB
-    $manager->executeBulkWrite('escola.estudante', $bulk);
+    $manager->executeBulkWrite($namespace, $bulk);
 
-    echo "Estudante cadastrado com sucesso";
+    header('Location: ../../pages/estudantes.html');
+    exit;
 }
 ?>
