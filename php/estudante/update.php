@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'PUT') {
         ['multi' => false]
     );
 
-    $manager->executeBulkWrite($namespace, $bulk);
+    $manager->executeBulkWrite($namespace1, $bulk);
 
     echo "Estudante atualizado!";
 }

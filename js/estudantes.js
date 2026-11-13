@@ -1,5 +1,6 @@
 const lista = document.getElementById('lista-estudantes');
 
+
 async function carregarEstudantes() {
 
     const resposta = await fetch('../php/estudante/get.php');
@@ -13,7 +14,8 @@ async function carregarEstudantes() {
         const card = document.createElement('div');
 
         card.innerHTML = `
-            <h3>${estudante.nome}</h3>
+            <h3>${estudante.name}</h3>
+
             <p>Email: ${estudante.email}</p>
             <p>CPF: ${estudante.cpf}</p>
             <p>Celular: ${estudante.celular}</p>
@@ -33,6 +35,8 @@ async function carregarEstudantes() {
     });
 }
 
+
+// DELETE 
 async function excluirEstudante(id) {
 
     if (!confirm('Deseja realmente excluir este estudante?')) {
@@ -48,11 +52,14 @@ async function excluirEstudante(id) {
 
     if (resposta.ok) {
         alert('Estudante excluído!');
-
         carregarEstudantes();
+    } else {
+        alert('Erro ao excluir estudante!');
     }
 }
 
+
+// PUT 
 async function editarEstudante(id) {
 
     const nome = prompt('Novo nome:');
@@ -73,20 +80,22 @@ async function editarEstudante(id) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                nome,
-                email,
-                cpf,
-                celular,
-                endereco: {}
+                name: nome,
+                email: email,
+                cpf: cpf,
+                celular: celular
             })
         }
     );
 
     if (resposta.ok) {
         alert('Estudante atualizado!');
-
         carregarEstudantes();
+    } else {
+        alert('Erro ao atualizar estudante!');
     }
 }
+
+
 
 carregarEstudantes();

@@ -4,7 +4,7 @@ require '../connection.php';
 
 $query = new MongoDB\Driver\Query([]);
 
-$resultado = $manager->executeQuery($namespace, $query);
+$resultado = $manager->executeQuery($namespace1, $query);
 
 $estudantes = [];
 

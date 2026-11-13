@@ -1,4 +1,193 @@
-form {
-    margin : 0 auto;
-    width: 50%;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #160d2e, #28134d, #402078);
+    min-height: 100vh;
+    padding: 40px 20px;
+    color: #29213d;
+}
+
+.container {
+    width: 100%;
+    max-width: 850px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+}
+
+.formulario,
+.estudantes {
+    width: 100%;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+.titulo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.titulo h1 {
+    color: #5424a8;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.titulo p {
+    color: #81778f;
+    font-size: 14px;
+}
+
+fieldset {
+    border: 1px solid #ded2f2;
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 25px;
+}
+
+legend {
+    color: #642bb5;
+    font-weight: bold;
+    padding: 0 10px;
+    font-size: 15px;
+}
+
+.campos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.campo-completo {
+    grid-column: span 2;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #423453;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d8cce9;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    background: #faf8fd;
+    color: #30243f;
+    transition: 0.2s;
+}
+
+input:focus,
+select:focus {
+    border-color: #813fe0;
+    box-shadow: 0 0 0 3px rgba(129, 63, 224, 0.13);
+    background: #ffffff;
+}
+
+input::placeholder {
+    color: #aaa0b8;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 9px;
+    background: linear-gradient(135deg, #7135c5, #4e1b91);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #874ce0, #6429b2);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(100, 41, 178, 0.25);
+}
+
+.estudantes {
+    text-align: center;
+}
+
+.estudantes h2 {
+    color: #5424a8;
+    margin-bottom: 25px;
+    font-size: 23px;
+}
+
+#lista-estudantes {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+}
+
+#lista-estudantes > div {
+    background: #f8f4ff;
+    border: 1px solid #e5d9f5;
+    border-radius: 10px;
+    padding: 18px;
+}
+
+#lista-estudantes h3 {
+    color: #5424a8;
+    margin-bottom: 10px;
+}
+
+#lista-estudantes p {
+    color: #655a72;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+#lista-estudantes button {
+    width: auto;
+    padding: 9px 18px;
+    margin-top: 12px;
+    margin-right: 8px;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 20px 12px;
+    }
+
+    .formulario,
+    .estudantes {
+        padding: 22px 16px;
+    }
+
+    .campos {
+        grid-template-columns: 1fr;
+    }
+
+    .campo-completo {
+        grid-column: span 1;
+    }
+
+    .titulo h1 {
+        font-size: 23px;
+    }
 }

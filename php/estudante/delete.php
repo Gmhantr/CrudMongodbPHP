@@ -4,13 +4,13 @@ require '../connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
 
-    // Capturar o ID recebido pela URL
+ 
     $id = $_GET['id'];
 
-    // Converter para ObjectId
+
     $id = new MongoDB\BSON\ObjectId($id);
 
-    // Preparar operação de exclusão
+
     $bulk = new MongoDB\Driver\BulkWrite();
 
     $bulk->delete(
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
     );
 
     // Executar exclusão
-    $resultado = $manager->executeBulkWrite($namespace, $bulk);
+    $resultado = $manager->executeBulkWrite($namespace1, $bulk);
 
     header('Content-Type: application/json');
 
