@@ -1,15 +1,14 @@
+
 <?php
 
 require '../connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-
     $name = $_POST['name'];
     $email = $_POST['email'];
     $cpf = $_POST['cpf'];
     $celular = $_POST['celular'];
-
 
     $cep = $_POST['cep'];
     $rua = $_POST['rua'];
@@ -18,6 +17,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $estado = $_POST['estado'];
     $complemento = $_POST['complemento'];
 
+    // Receber cursos selecionados
+    $cursos = $_POST['cursos'] ?? [];
+
+    $cursosIds = [];
+
+    foreach ($cursos as $id) {
+        $cursosIds[] = new MongoDB\BSON\ObjectId($id);
+    }
 
     $bulk = new MongoDB\Driver\BulkWrite();
 
@@ -26,6 +33,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         'email' => $email,
         'cpf' => $cpf,
         'celular' => $celular,
+
+        'cursos' => $cursosIds,
 
         'endereco' => [
             'cep' => $cep,
@@ -37,10 +46,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ]
     ]);
 
-
     $manager->executeBulkWrite($namespace1, $bulk);
 
     header('Location: ../../pages/estudante.html');
     exit;
 }
+
+// Gustavo Pacheco Delazari + IA
 ?>

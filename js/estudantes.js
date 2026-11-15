@@ -1,5 +1,11 @@
-const lista = document.getElementById('lista-estudantes');
 
+const lista = document.getElementById('lista-estudantes');
+const listaCursos = document.getElementById('lista-cursos');
+
+let cursosMap = {};
+
+
+// GET ESTUDANTES
 
 async function carregarEstudantes() {
 
@@ -13,11 +19,18 @@ async function carregarEstudantes() {
 
         const card = document.createElement('div');
 
+        const nomesCursos = estudante.cursos?.length
+            ? estudante.cursos.map(curso => {
+                const id = curso.$oid || curso;
+                return cursosMap[id] || 'Curso não encontrado';
+            }).join(', ')
+            : 'Nenhum curso';
+
         card.innerHTML = `
             <h3>${estudante.name}</h3>
 
             <p>Email: ${estudante.email}</p>
-            <p>CPF: ${estudante.cpf}</p>
+            <p>Cursos: ${nomesCursos}</p>
             <p>Celular: ${estudante.celular}</p>
 
             <button onclick="editarEstudante('${estudante._id.$oid}')">
@@ -36,7 +49,8 @@ async function carregarEstudantes() {
 }
 
 
-// DELETE 
+// DELETE ESTUDANTE
+
 async function excluirEstudante(id) {
 
     if (!confirm('Deseja realmente excluir este estudante?')) {
@@ -59,7 +73,8 @@ async function excluirEstudante(id) {
 }
 
 
-// PUT 
+// PUT ESTUDANTE
+
 async function editarEstudante(id) {
 
     const nome = prompt('Novo nome:');
@@ -97,5 +112,64 @@ async function editarEstudante(id) {
 }
 
 
+// checkbox cursos em estudantes
 
-carregarEstudantes();
+async function carregarCursos() {
+
+    const resposta = await fetch('../php/cursos/get.php');
+
+    const cursos = await resposta.json();
+
+    listaCursos.innerHTML = '';
+
+    cursosMap = {};
+
+    if (cursos.length === 0) {
+        listaCursos.textContent = 'Nenhum curso cadastrado.';
+        return;
+    }
+
+    cursos.forEach(curso => {
+
+        const id = curso._id.$oid;
+
+        // Guardar ID e nome do curso
+        cursosMap[id] = curso.name;
+
+        const label = document.createElement('label');
+        label.classList.add('curso-item');
+
+        const checkbox = document.createElement('input');
+
+        checkbox.type = 'checkbox';
+        checkbox.name = 'cursos[]';
+        checkbox.value = id;
+        checkbox.required = true;
+
+        const nome = document.createElement('span');
+        nome.textContent = curso.name;
+
+        label.appendChild(checkbox);
+        label.appendChild(nome);
+
+        listaCursos.appendChild(label);
+
+    });
+
+}
+
+
+// INICIALIZAÇÃO
+
+async function iniciar() {
+
+    await carregarCursos();
+
+    await carregarEstudantes();
+
+}
+
+iniciar();
+
+
+// Gustavo Pacheco Delazari + IA
