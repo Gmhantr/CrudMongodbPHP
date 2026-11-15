@@ -7,7 +7,8 @@
     <title>Cadastro de Cursos</title>
 </head>
 <body>
-    main class="container">
+    <main class="container">
+        <a href="../index.php" class="btn-voltar">← Voltar</a>
 
         <section class="formulario">
 
@@ -16,7 +17,7 @@
                 <p>Preencha os dados para cadastrar um novo curso.</p>
             </div>
 
-    <form action="" method="POST">
+    <form action="../php/cursos/create.php" method="POST">
 
         <fieldset>
             <legend>Dados do Curso</legend>
@@ -50,8 +51,8 @@
 
     </form>
         <section class="estudantes">
-            <h2>Estudantes cadastrados</h2>
-            <div id="lista-estudantes"></div>
+            <h2>Cursos cadastrados</h2>
+            <div id="lista-cursos"></div>
         </section>
 
     </main>

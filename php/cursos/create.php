@@ -17,24 +17,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $bulk->insert([
         'name' => $name,
-        'email' => $email,
-        'cpf' => $cpf,
-        'celular' => $celular,
-
-        'endereco' => [
-            'cep' => $cep,
-            'rua' => $rua,
-            'bairro' => $bairro,
-            'cidade' => $cidade,
-            'estado' => $estado,
-            'complemento' => $complemento
-        ]
+        'codigo' => $codigo,
+        'descricao' => $descricao,
+        'carga_horaria' => $carga_horaria,
+        'modalidade' => $modalide
     ]);
 
 
     $manager->executeBulkWrite($namespace2, $bulk);
 
-    header('Location: ../../pages/estudante.html');
+    header('Location: ../../pages/cursos.html');
     exit;
 }
 

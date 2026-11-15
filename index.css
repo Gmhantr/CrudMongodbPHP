@@ -23,6 +23,7 @@ body {
     gap: 35px;
 }
 
+/* Formulário e listagem */
 .formulario,
 .estudantes {
     width: 100%;
@@ -32,6 +33,7 @@ body {
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
 }
 
+/* Título */
 .titulo {
     text-align: center;
     margin-bottom: 30px;
@@ -48,6 +50,7 @@ body {
     font-size: 14px;
 }
 
+/* Campos do formulário */
 fieldset {
     border: 1px solid #ded2f2;
     border-radius: 12px;
@@ -78,12 +81,14 @@ legend {
     grid-column: span 2;
 }
 
+/* Labels */
 label {
     font-size: 14px;
     font-weight: 600;
     color: #423453;
 }
 
+/* Inputs e selects */
 input,
 select {
     width: 100%;
@@ -108,6 +113,7 @@ input::placeholder {
     color: #aaa0b8;
 }
 
+/* Botões */
 button {
     width: 100%;
     padding: 15px;
@@ -127,6 +133,7 @@ button:hover {
     box-shadow: 0 6px 15px rgba(100, 41, 178, 0.25);
 }
 
+/* Área de estudantes e cursos */
 .estudantes {
     text-align: center;
 }
@@ -137,38 +144,49 @@ button:hover {
     font-size: 23px;
 }
 
-#lista-estudantes {
+/* Listas */
+#lista-estudantes,
+#lista-cursos {
     display: flex;
     flex-direction: column;
     gap: 15px;
     text-align: left;
 }
 
-#lista-estudantes > div {
+/* Cards */
+#lista-estudantes > div,
+#lista-cursos > div {
     background: #f8f4ff;
     border: 1px solid #e5d9f5;
     border-radius: 10px;
     padding: 18px;
 }
 
-#lista-estudantes h3 {
+/* Títulos dos cards */
+#lista-estudantes h3,
+#lista-cursos h3 {
     color: #5424a8;
     margin-bottom: 10px;
 }
 
-#lista-estudantes p {
+/* Informações dos cards */
+#lista-estudantes p,
+#lista-cursos p {
     color: #655a72;
     font-size: 14px;
     margin-bottom: 6px;
 }
 
-#lista-estudantes button {
+/* Botões dos cards */
+#lista-estudantes button,
+#lista-cursos button {
     width: auto;
     padding: 9px 18px;
     margin-top: 12px;
     margin-right: 8px;
 }
 
+/* Responsividade */
 @media (max-width: 600px) {
     body {
         padding: 20px 12px;
@@ -190,6 +208,24 @@ button:hover {
     .titulo h1 {
         font-size: 23px;
     }
+}
+
+.btn-voltar {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    background: #dc3545;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-voltar:hover {
+    background: #b02a37;
+    transform: translateY(-2px);
 }
 
 
