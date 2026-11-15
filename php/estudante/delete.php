@@ -34,4 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
             'erro' => 'Estudante não encontrado!'
         ]);
     }
+    
+
+// Gustavo Pacheco Delazari
 }
