@@ -220,3 +220,4 @@ Dessa forma, os demais arquivos PHP podem utilizar a conexão para realizar oper
 ---
 
 Desenvolvido para fins de estudo e prática de desenvolvimento web, manipulação de dados e integração entre frontend, backend e banco de dados.
+Feito com auxilio de IA demarcados dentro do código o autor.
