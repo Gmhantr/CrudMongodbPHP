@@ -75,7 +75,8 @@ cadastro-php-mongodb/
 │   │
 │   └── connection.php
 │
-├── style/
+├── index.php
+├── index.css
 │
 └── README.md
 ```
@@ -101,7 +102,8 @@ cadastro-php-mongodb/
   - `update.php`: Atualiza as informações de um estudante.
   - `delete.php`: Exclui um estudante.
 
-- `./style`: Armazena os arquivos CSS responsáveis pela aparência das páginas.
+- `.index.css`: Toda a estilização CSS responsáveis pela aparência das páginas.
+- `.index.php`: Pagina Principal, onde se encontra a escolha de cadastro.
 
 ---
 
