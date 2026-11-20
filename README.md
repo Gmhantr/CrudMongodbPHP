@@ -12,7 +12,7 @@ Para executar o projeto, é necessário ter instalado:
 - [MongoDB](https://www.mongodb.com/)
 - [MongoDB PHP Driver](https://www.php.net/docs.php)
 - [Visual Studio Code](https://code.visualstudio.com/)
-- Navegador web
+- Navegador web(google, firefox, opera, etc).
 
 ### Como rodar na minha máquina?
 
